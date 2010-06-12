@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.name        = "caulfield"
   s.version     = Caulfield::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Carl Lerche", "Yehuda Katz"]
-  s.email       = ["carlhuda@engineyard.com"]
+  s.authors     = ["Chris Hanks"]
+  s.email       = ["christopher.m.hanks@gmail.com"]
   s.homepage    = "http://github.com/chanks/caulfield"
   s.summary     = "A Rack middleware for Rails testing."
   s.description = "A Rack middleware to aid in integration testing for Rails 3 and up."
