@@ -2,7 +2,8 @@ require 'caulfield/middleware'
 
 module Caulfield
   class << self
-    delegate :reset, :session, :cookies, :set_session, :set_cookies,
+    delegate :reset, :request, :response, :headers, :body,
+      :session, :cookies, :set_session, :set_cookies,
       :to => 'Caulfield::Middleware.instance'
   end
 end
