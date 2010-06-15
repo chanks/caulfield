@@ -1,7 +1,7 @@
 module Caulfield
   class Middleware
     @@instance = new
-    attr_accessor :app, :session, :cookies, :request, :response, :headers, :body
+    attr_accessor :app, :session, :cookies, :request, :status, :headers, :body
 
     class << self
       def new(app)
@@ -21,16 +21,16 @@ module Caulfield
       merge_cookies unless @cookies_to_merge.empty?
       merge_session unless @session_to_merge.empty?
 
-      @response, @headers, @body = @app.call(env)
+      @status, @headers, @body = @app.call(env)
 
       @cookies = @request.cookie_jar
       @session = @request.session
 
-      [@response, @headers, @body]
+      [@status, @headers, @body]
     end
 
     def reset
-      @cookies = @session = @request = @response = @headers = @body = nil
+      @cookies = @session = @request = @status = @headers = @body = nil
 
       @cookies_to_merge = {}
       @session_to_merge = {}
