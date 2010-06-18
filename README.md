@@ -32,6 +32,10 @@ You can wrap whatever DSL you like around these methods. For example:
       Caulfield.set_session :user_id => nil
     end
 
-In addition to the session and cookies from the request, you can also access the ActionDispatch::Request object from the last request with Caulfield.request, and the components of the app's last Rack response with Caulfield.status, Caulfield.headers, and Caulfield.body.
+In addition to the session and cookies from the request, you can also use:
+
+- Caulfield.request => The ActionDispatch::Request object from the last request.
+- Caulfield.env => The env hash from the last request
+- Caulfield.status, Caulfield.headers, Caulfield.body => The components of the app's last Rack response.
 
 Happy testing!
