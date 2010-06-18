@@ -1,7 +1,10 @@
 module Caulfield
   class Middleware
     @@instance = new
-    attr_accessor :app, :session, :cookies, :request, :status, :headers, :body
+    attr_accessor :app, 
+      :session, :cookies, 
+      :request, :env,
+      :status, :headers, :body
 
     class << self
       def new(app)
@@ -16,6 +19,7 @@ module Caulfield
     end
 
     def call(env)
+      @env = env
       @request = ActionDispatch::Request.new(env)
 
       merge_cookies unless @cookies_to_merge.empty?
@@ -30,7 +34,9 @@ module Caulfield
     end
 
     def reset
-      @cookies = @session = @request = @status = @headers = @body = nil
+      @cookies = @session = nil
+      @request = @env = nil
+      @status = @headers = @body = nil
 
       @cookies_to_merge = {}
       @session_to_merge = {}
