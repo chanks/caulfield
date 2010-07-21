@@ -2,7 +2,7 @@
 
 Caulfield is a small Rack middleware to be used in integration testing for Rails 3 applications. It offers a simple interface to inspect the session and cookie jar of the most recent request, and to set values and cookies for the next request. I'm using it with Capybara and RSpec, but I don't see why it wouldn't work with any other integration testing setup. It's a simple extraction from one of my projects, where I use it extensively, but it itself doesn't have tests, so beware.
 
-Caulfield requires Rails 3.0.0.beta4 or higher.
+If you're using Rails 3.0.0.beta4 or higher, Caulfield will insert itself into your middleware stack automatically. Otherwise, you'll have to specifically use Caulfield::Middleware.
 
 ### How to Use
 
