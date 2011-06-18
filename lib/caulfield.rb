@@ -2,10 +2,9 @@ require 'caulfield/middleware'
 
 module Caulfield
   class << self
-    delegate :reset, :request, :env, 
-      :status, :headers, :body,
-      :session, :cookies, :set_session, :set_cookies,
-      :to => 'Caulfield::Middleware.instance'
+    def method_missing(method, *args, &block)
+      Middleware.instance.send(method, *args, &block)
+    end
   end
 end
 
