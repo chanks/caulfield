@@ -10,6 +10,6 @@ end
 
 if defined?(Rails) && Rails.version >= '3.0.0'
   ActiveSupport.on_load :before_initialize do
-    Rails.configuration.middleware.use Caulfield::Middleware
+    Rails.configuration.middleware.insert_before ActionDispatch::Static, Caulfield::Middleware
   end
 end
